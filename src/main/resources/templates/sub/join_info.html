@@ -1,0 +1,264 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="_csrf" th:content="${_csrf.token}">
+	<meta name="_csrf_header" th:content="${_csrf.headerName}">
+</head>
+
+<th:block th:replace="~{/layout :: setContent(~{this::content})}">
+<th:block th:fragment="content">
+
+    <div class="content">
+      <div class="web-wrap">
+        <h2><span>JOIN</span>회원가입</h2>
+        <div class="join-wrap"> 
+          <ul class="step-view">
+            <li class="present">
+              <p><span>STEP 1 :: </span>약관동의</p>
+            </li>
+            <li class="present">
+              <p><span>STEP 2 :: </span>정보입력</p>
+            </li>
+            <li>
+              <p><span>STEP 3 :: </span>가입완료</p>
+            </li>
+          </ul>
+
+          <div class="join-info">
+            <form id="frm" name="frm" action="/sub/new" method="post">
+              <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+              <input type="hidden" id="usid" name="usid" value=""/>
+              <ul class="info-wrap info-1">
+                <li>
+                  <span>이메일(아이디)</span>
+                  <div class="email-form">
+                    <input type="text" id="usemail" name="usemail" autofocus>
+                    <i class="email-txt">@</i>
+                    <input type="text" id="usemailetc" name="usemailetc">
+                    <label class="select-box" id="selemailetc-label">
+                      <select id="selemailetc" name="selemailetc">
+                        <option value="">선택</option>
+                        <option value="99" selected>직접입력</option>
+                        <option value="naver.com">Naver</option>
+                        <option value="gmail.com">Google</option>
+                      </select>
+                    </label>
+                    <button type="button" class="btn-style btn-green" id="btnAuthenReg">인증요청</button>
+                    <span class="msg"></span>
+                  </div>
+                </li>
+                <li id="authconf_Div" style="display: none;">
+                  <span>인증번호 확인</span>
+                  <div class="email-form">
+                    <input type="text" id="code" name="code">
+                    <button type="button" id="btn_authcode_conf" name="btn_authcode_conf" onclick="return false" class="btn-style btn-green">확인</button>
+                  </div>
+                </li>
+                <li>
+                  <span>비밀번호</span>
+                  <div>
+                    <input type="password" name="uspw" placeholder="6자리 숫자로 입력해주세요">
+                  </div>
+                </li>
+                <li>
+                  <span>비밀번호 확인</span>
+                  <div>
+                    <input type="password" name="join_pwd_re" placeholder="비밀번호를 다시 한번 입력해주세요">
+                  </div>
+                </li>
+              </ul>
+              <ul class="info-wrap info-2">
+                <li>
+                  <span>서비스 신청자</span>
+                  <div class="radio-wrap">
+                    <label class="radio-form"><input type="radio" name="svcapplicant" value="1" checked="checked"><span>학부모</span></label>
+                    <label class="radio-form"><input type="radio" name="svcapplicant" value="2"><span>교사</span></label>
+                  </div>
+                </li>
+                <li>
+                  <span>서비스 대상자</span>
+                  <div class="radio-wrap">
+                    <label class="radio-form"><input type="radio" name="svctarget" value="1" checked="checked"><span>자녀</span></label>
+                    <label class="radio-form"><input type="radio" name="svctarget" value="2"><span>학생</span></label>
+                  </div>
+                </li>
+                <li>
+                  <span>자녀 또는 학생의 나이</span>
+                  <div class="select-form">
+                    <label class="select-box">
+                      <select name="svcage">
+                        <option th:each="num : ${#numbers.sequence(2000,2022)}" th:value="${num}" th:text="${num + ' 년생'}">출생년도 선택</option>
+                      </select>
+                    </label>
+                  </div>
+                </li>
+                <li>
+                  <span>자녀 또는 학생의 성별</span>
+                  <div class="radio-wrap">
+                    <label class="radio-form"><input type="radio" name="svcgender" value="M" checked="checked"><span>남자</span></label>
+                    <label class="radio-form"><input type="radio" name="svcgender" value="F"><span>여자</span></label>
+                  </div>
+                </li>
+                <li>
+                  <span>거주 국가&middot;도시</span>
+                  <div class="select-form">
+                    <label class="select-box">
+                      <select name="svccountry">
+                        <option value="대한민국">대한민국</option>
+                      </select>
+                    </label>
+                    <label class="select-box">
+                      <select name="svccity">
+                        <option value="서울">서울</option>
+                        <option value="강원도">강원도</option>
+                        <option value="경기도">경기도</option>
+                        <option value="충청도">충청도</option>
+                        <option value="전라도">전라도</option>
+                        <option value="경상도">경상도</option>
+                        <option value="제주도">제주도</option>
+                      </select>
+                    </label>
+                  </div>
+                </li>
+              </ul>
+              <div class="btn-wrap">
+                <a th:href="@{/sub/join}" class="btn-style">이전</a>
+                <button type="submit" class="btn-style btn-green">가입하기</button>
+              </div>
+            </form>
+          </div>          
+          
+        </div>
+      </div>
+    </div>
+    <!-- content end -->
+
+    <footer id="footer"></footer>
+  </div>
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/additional-methods.min.js"></script>
+  <script>
+  	var code= "";
+    $(function(){
+      $("#frm").validate({
+        rules: {
+          usemail: {
+            required: true,
+          },
+          uspw: {
+            required: true,
+          },
+          join_pwd_re: {
+            required: true,
+          }
+        },
+        messages: {
+        	usemail: {
+            required: "아이디를 입력해주세요.",
+          },
+          uspw: {
+            required: "비밀번호를 입력해 주세요.",
+          },
+          join_pwd_re: {
+            required: "비밀번호를 다시 입력해 주세요.",
+          }
+        },
+        errorElement: 'span',
+        errorPlacement: function ($error, $element) {
+          if($element.attr('name') == "usemail"){
+            $error.addClass('invalid-feedback');
+            $element.closest('.email-form').append($error);
+          } else {
+            $error.addClass('invalid-feedback');
+            $element.parent().append($error);
+          }
+        },
+        highlight: function (element, errorClass, validClass) {
+          $(element).addClass('is-invalid');
+        },
+        unhighlight: function (element, errorClass, validClass) {
+          $(element).removeClass('is-invalid');
+        }
+      });      
+
+      $("#selemailetc").on("change", function() {
+    	if( $(this).val() == "99" ) {
+    		$("#usemailetc").attr("readonly", false);
+    		$("#usemailetc").val("");
+    		$("#usemailetc").focus();
+    	}else {
+          	$("#usemailetc").val( $(this).val() );
+          	$("#usemailetc").attr("readonly", true);	
+    	}
+      })
+      
+      function isEmail(email) {
+    	  var email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
+    	  return email_regex.test(email);
+      }
+      
+   	  // Email AJAX
+      $("#btnAuthenReg").on("click", function() {
+    	  if( $("#usemail").val() == "" || $("#usemailetc").val() == "" ) {
+    		  $(".info-1 .msg").html("이메일(아이디)를 모두 정확히 입력해주세요.");
+    		  return false;
+    	  }
+    	  $("#usid").val( $("#usemail").val() + "@" + $("#usemailetc").val() );
+          if( isEmail($("#usid").val()) == false ) {
+        	  $(".info-1 .msg").html("이메일 형식을 확인해주세요.");
+    		  return false;
+          }
+          var frmData = $("#usid").val();
+          $.ajax({
+          	  type : "post",
+          	  url : "/sub/mailConfirm",
+          	  beforeSend : function(xhr) {
+          		  xhr.setRequestHeader( $("meta[name='_csrf_header']").attr('content'), $("meta[name='_csrf']").attr('content') );
+          	  },
+          	  data : {"email" : frmData},
+          	  dataType : "json",
+          	  cache : false,
+          	  success : function(data) {
+          		  if( data.result == 'Y' ) {
+          			  code = data.code;
+          			  $("#usemail, #usemailetc").attr("readonly", true);
+          			  $("#btnAuthenReg").css("display", "none");
+          			  $("#selemailetc-label").css("display", "none");
+          			  $("#authconf_Div").css("display", "block");
+          			  alert("'" + data.email + "' " + data.msg);
+          		  }else {
+          			alert(data.msg);
+          		  }
+          	  },
+          	  error : function(e) {
+          		  alert('Error - ' + e.msg);
+          	  }
+          })
+      }) 
+      
+      $("#btn_authcode_conf").on("click", function() {
+    	  if( $("#code").val() == '' ) {
+    		  alert('인증번호를 입력하세요.');
+    		  return false;
+    	  }
+    	  var inputCode = $("#code").val();
+    	  if( code == inputCode ) {
+    		  alert('인증이 성공적으로 확인되었습니다.');
+    		  $("#btn_authcode_conf").css("display", "none");
+    		  $("#code").attr("readonly", true);
+    		  $("#code").css("background-color", "#ccc");
+    	  }else {
+    		  alert('인증번호를 다시 확인해주세요.');
+    	  }
+      })
+      
+    });
+    
+  </script>
+  
+</th:block>
+</th:block>
+
+</html>

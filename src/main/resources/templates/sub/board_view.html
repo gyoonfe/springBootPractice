@@ -1,0 +1,37 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+</head>
+<th:block th:replace="~{/layout :: setContent(~{this::content})}">
+<th:block th:fragment="content">
+
+
+    <div class="content">
+      <div class="web-wrap">
+        <h2><span>NOTICE</span>공지사항</h2>
+        <div class="board">         
+          <div class="view">
+            <div class="view-title">
+              <p class="title" th:text="${notice.subject}">                
+                                
+              </p>
+              <span class="date">
+                <i class="icon-date"></i><span th:text="${#temporals.format(notice.regdtm, 'yyyy-MM-dd HH:mm:ss')}"></span>
+              </span>
+            </div>
+            <div class="view-content">
+              <span th:text="${notice.content}"></span>
+            </div>
+          </div>
+          <div class="view-btn">
+            <a th:href="@{/sub/board}" class="btn-line">목록</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- content end -->
+
+</th:block>
+</th:block>
+
+</html>

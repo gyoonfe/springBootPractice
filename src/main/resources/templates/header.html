@@ -1,0 +1,88 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+</head>
+
+<th:block th:fragment="header">
+
+<div id="header_menu" class="header">      
+  <div class="web-wrap">
+    <h1 class="logo"><a th:href="@{/}"><span class="hide">�궎利덉돱�뱶</span></a></h1>
+    <a class="menu-btn" href="">
+      <i class="xi-bars xi-2x"></i>
+      <span class="hide">紐⑤컮�씪硫붾돱�븘�씠肄�</span>
+    </a>
+    <div class="menu">
+      <a class="close-btn">
+        <i class="xi-close xi-2x"></i>
+        <span class="hide">�떕湲�</span>
+      </a>
+      <div class="top-user">
+        <!-- 濡쒓렇�씤 �븞�븳 �씪諛섏쑀�� ( dp-n �겢�옒�뒪濡� 泥댁씤吏� �젣�뼱) -->
+        <ul class="user" sec:authorize="isAnonymous()">
+          <li><a th:href="@{/sub/login}">로그인</a></li>
+          <li><a th:href="@{/sub/join}">회원가입</a></li>
+        </ul>
+        <!-- 濡쒓렇�씤 �븳 �쑀�� ( dp-n �겢�옒�뒪濡� 泥댁씤吏� �젣�뼱) -->
+        <ul class="user" sec:authorize="isAuthenticated()">
+          <li><a th:href="@{/sub/logout}">로그아웃</a></li>
+          <li><a th:href="@{/sub/mypage}">Mypage</a></li>
+          <li><a th:href="@{/admin}" sec:authorize="hasRole('ADMIN')">Admin</a></li>
+        </ul>
+        <!-- �뼵�뼱 -->
+        <div class="lang">
+          <a href="">KR<i class="xi-caret-down-min"></i></a>
+          <ul>
+            <li><a href="">KR</a></li>
+            <li><a href="">KR</a></li>
+          </ul>
+        </div>
+      </div>
+      <ul class="gnb">
+        <li><a href="/html/index.html">키즈쉴드 소개</a></li>
+        <li><a th:href="@{/images/kids.pdf}" target="_blank">이용방법</a></li>
+        <li><a th:href="@{/download}" target="_blank">다운로드</a></li>
+        <li><a th:href="@{/sub/board}">공지사항</a></li>
+        <li><a th:href="@{/sub/board2}">공지사항2</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<script>
+  $(function(){
+    $('#header_menu .menu-btn').click(function(){      
+      // 硫붾돱
+      $('body').append($(document.createElement('div')).addClass('dim'));  
+      $('body').addClass('scroll-none');  
+      $('.header .menu').css('right','-100%').show().animate({
+        right:'0'
+      });
+      return false;
+    });
+
+    $('#header_menu .close-btn').click(function(){
+      $('body').removeClass('scroll-none'); 
+      $('.header .menu').animate({
+        right:'-100%'
+      },function(){
+        $(".dim").remove();
+      });
+      return false;
+    });
+
+    var fixOffset = $( '.header' ).offset();
+    $( window ).scroll( function() {
+      if ( $( document ).scrollTop() > fixOffset.top ) {
+        $( '.header' ).addClass( 'fix' );
+      }
+      else {
+        $( '.header' ).removeClass( 'fix' );
+      }
+    });
+
+  });
+</script>
+
+</th:block>
+</html>

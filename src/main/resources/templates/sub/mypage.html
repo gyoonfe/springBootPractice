@@ -1,0 +1,456 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+</head>
+<th:block th:replace="~{/layout :: setContent(~{this::content})}">
+<th:block th:fragment="content">
+
+    <div class="content">
+      <div class="web-wrap">
+        <h2><span>MY PAGE</span>내 정보</h2>
+        <div class="mypage-wrap">
+          <!-- 기본정보 -->
+          <div class="partition">
+            <h3>기본정보</h3>
+            <ul class="info-box basic">
+              <li>
+                <b>서비스 신청자</b>
+                <div>
+                  <span>학부모</span>
+                </div>
+              </li>
+              <li>
+                <b>아이디</b>
+                <div>
+                  <span>email@email.com</span>
+                </div>
+              </li>
+              <li>
+                <b>서비스 대상자</b>
+                <div>
+                  <span>자녀</span>
+                  &middot;
+                  <span>2000년 생</span>
+                </div>
+              </li>
+              <li>
+                <b>국가&middot;지역</b>
+                <div>
+                  <span>한국</span>
+                  &middot;
+                  <span>서울</span>
+                </div>
+              </li>
+            </ul>
+            <div class="btn-wrap">
+              <a href="mypage_info.html" class="btn-line">내 정보 수정</a>
+              <a href="mypage_pw.html" class="btn-line btn-line-orange">비밀번호 변경</a>
+            </div>
+          </div>
+          <!-- 차단기능 -->
+          <div class="partition setting-box">
+            <div class="info-box setting">
+              <b>차단기능</b>
+              <div>
+                <div class="toggle-box">
+                  <input id="toggle-on" class="toggle toggle-left" name="toggle" value="false" type="radio" checked>
+                  <label for="toggle-on" class="btn">ON</label>
+                  <input id="toggle-off" class="toggle toggle-right" name="toggle" value="true" type="radio">
+                  <label for="toggle-off" class="btn">OFF</label>
+                </div>
+              </div>
+            </div>
+            <div class="info-box setting">
+              <b>차단 시간 설정</b>
+              <div>
+                <div class="time-box">
+                  <label class="select-box">
+                    <select>
+                      <option>선택</option>
+                      <option>AM</option>
+                      <option>PM</option>
+                    </select>
+                  </label>
+                  <input type="text">
+                </div>
+                <span class="wave">~</span>
+                <div class="time-box">
+                  <label class="select-box">
+                    <select>
+                      <option>선택</option>
+                      <option>AM</option>
+                      <option>PM</option>
+                    </select>
+                  </label>
+                  <input type="text">
+                </div>
+              </div>
+            </div>
+            <div class="btn-wrap">
+              <a href="" class="btn-line btn-line-gray">변경설정 저장</a>
+              <p>변경설정을 저장하셔야 적용 됩니다.</p>          
+            </div>
+          </div>
+          <!-- 내 아이가 본 영상 -->
+          <div class="partition">
+            <h3>내 아이가 본 영상</h3>
+            <div class="info-box scroll-box">
+              <table class="table-style">
+                <thead>
+                  <tr>
+                    <th>날짜</th>
+                    <th>시간</th>
+                    <th>제목</th>
+                    <th>URL</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>2021.01.20</td>
+                    <td>13:03</td>
+                    <td>
+                      <div class="text-ellip">
+                        <span>초등학교 안전교육 지킴이</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="text-ellip">
+                        <a href="" target="_blank">https://www.youtube.com/watch?v=yn9d3VHhHMc/watch?v=yn9d3VHhHMc/watch?v=yn9d3VHhHMc/watch?v=yn9d3VHhHMc/watch?v=yn9d3VHhHMc</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2021.01.20</td>
+                    <td>13:03</td>
+                    <td>
+                      <div class="text-ellip">
+                        <span>초등학교 안전교육 지킴이 초등학교 안전교육 지킴이</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="text-ellip">
+                        <a href="" target="_blank">https://www.youtube.com/watch?v=yn9d3VHhHMc</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2021.01.20</td>
+                    <td>13:03</td>
+                    <td>
+                      <div class="text-ellip">
+                        <span>초등학교 안전교육 지킴이</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="text-ellip">
+                        <a href="" target="_blank">https://www.youtube.com/watch?v=yn9d3VHhHMc</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2021.01.20</td>
+                    <td>13:03</td>
+                    <td>
+                      <div class="text-ellip">
+                        <span>초등학교 안전교육 지킴이</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="text-ellip">
+                        <a href="" target="_blank">https://www.youtube.com/watch?v=yn9d3VHhHMc</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2021.01.20</td>
+                    <td>13:03</td>
+                    <td>
+                      <div class="text-ellip">
+                        <span>초등학교 안전교육 지킴이</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="text-ellip">
+                        <a href="" target="_blank">https://www.youtube.com/watch?v=yn9d3VHhHMc</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2021.01.20</td>
+                    <td>13:03</td>
+                    <td>
+                      <div class="text-ellip">
+                        <span>초등학교 안전교육 지킴이</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="text-ellip">
+                        <a href="" target="_blank">https://www.youtube.com/watch?v=yn9d3VHhHMc</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2021.01.20</td>
+                    <td>13:03</td>
+                    <td>
+                      <div class="text-ellip">
+                        <span>초등학교 안전교육 지킴이</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="text-ellip">
+                        <a href="" target="_blank">https://www.youtube.com/watch?v=yn9d3VHhHMc</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2021.01.20</td>
+                    <td>13:03</td>
+                    <td>
+                      <div class="text-ellip">
+                        <span>초등학교 안전교육 지킴이</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="text-ellip">
+                        <a href="" target="_blank">https://www.youtube.com/watch?v=yn9d3VHhHMc</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2021.01.20</td>
+                    <td>13:03</td>
+                    <td>
+                      <div class="text-ellip">
+                        <span>초등학교 안전교육 지킴이</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="text-ellip">
+                        <a href="" target="_blank">https://www.youtube.com/watch?v=yn9d3VHhHMc</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2021.01.20</td>
+                    <td>13:03</td>
+                    <td>
+                      <div class="text-ellip">
+                        <span>초등학교 안전교육 지킴이</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="text-ellip">
+                        <a href="" target="_blank">https://www.youtube.com/watch?v=yn9d3VHhHMc</a>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- 페이징은 모바일을 고려해서 5페이지까지만 -->
+            <ul class="paging">
+              <li class="page-first">
+                <a href="">
+                  <i class="icon-page icon-first"></i><span class="hide">처음</span>
+                </a>
+              </li>
+              <li class="page-prev">
+                <a href="">
+                  <i class="icon-page icon-prev"></i><span class="hide">이전</span>
+                </a>
+              </li>            
+              <li class="present"><a href="">1</a></li>
+              <li class=""><a href="">2</a></li>
+              <li class=""><a href="">3</a></li>
+              <li class=""><a href="">4</a></li>
+              <li class=""><a href="">5</a></li>
+              <li class="page-next">
+                <a href="">
+                  <i class="icon-page icon-next"></i><span class="hide">다음</span>
+                </a>
+              </li>
+              <li class="page-last">
+                <a href="">
+                  <i class="icon-page icon-last"></i><span class="hide">마지막</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!-- 내 아이 또래가 많이 본 영상 -->
+          <div class="partition">
+            <h3>내 아이 또래가 많이 본 영상</h3>
+            <div class="info-box scroll-box">
+              <table class="table-style">
+                <thead>
+                  <tr>
+                    <th>날짜</th>
+                    <th>재생횟수</th>
+                    <th>제목</th>
+                    <th>URL</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>2021.01.20</td>
+                    <td>525</td>
+                    <td>
+                      <div class="text-ellip">
+                        <span>초등학교 안전교육 지킴이</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="text-ellip">
+                        <a href="" target="_blank">https://www.youtube.com/watch?v=yn9d3VHhHMc/watch?v=yn9d3VHhHMc/watch?v=yn9d3VHhHMc/watch?v=yn9d3VHhHMc/watch?v=yn9d3VHhHMc</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2021.01.20</td>
+                    <td>265</td>
+                    <td>
+                      <div class="text-ellip">
+                        <span>초등학교 안전교육 지킴이 초등학교 안전교육 지킴이</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="text-ellip">
+                        <a href="" target="_blank">https://www.youtube.com/watch?v=yn9d3VHhHMc</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2021.01.20</td>
+                    <td>122</td>
+                    <td>
+                      <div class="text-ellip">
+                        <span>초등학교 안전교육 지킴이</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="text-ellip">
+                        <a href="" target="_blank">https://www.youtube.com/watch?v=yn9d3VHhHMc</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2021.01.20</td>
+                    <td>122</td>
+                    <td>
+                      <div class="text-ellip">
+                        <span>초등학교 안전교육 지킴이</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="text-ellip">
+                        <a href="" target="_blank">https://www.youtube.com/watch?v=yn9d3VHhHMc</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2021.01.20</td>
+                    <td>122</td>
+                    <td>
+                      <div class="text-ellip">
+                        <span>초등학교 안전교육 지킴이</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="text-ellip">
+                        <a href="" target="_blank">https://www.youtube.com/watch?v=yn9d3VHhHMc</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2021.01.20</td>
+                    <td>122</td>
+                    <td>
+                      <div class="text-ellip">
+                        <span>초등학교 안전교육 지킴이</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="text-ellip">
+                        <a href="" target="_blank">https://www.youtube.com/watch?v=yn9d3VHhHMc</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2021.01.20</td>
+                    <td>122</td>
+                    <td>
+                      <div class="text-ellip">
+                        <span>초등학교 안전교육 지킴이</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="text-ellip">
+                        <a href="" target="_blank">https://www.youtube.com/watch?v=yn9d3VHhHMc</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2021.01.20</td>
+                    <td>122</td>
+                    <td>
+                      <div class="text-ellip">
+                        <span>초등학교 안전교육 지킴이</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="text-ellip">
+                        <a href="" target="_blank">https://www.youtube.com/watch?v=yn9d3VHhHMc</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2021.01.20</td>
+                    <td>122</td>
+                    <td>
+                      <div class="text-ellip">
+                        <span>초등학교 안전교육 지킴이</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="text-ellip">
+                        <a href="" target="_blank">https://www.youtube.com/watch?v=yn9d3VHhHMc</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2021.01.20</td>
+                    <td>122</td>
+                    <td>
+                      <div class="text-ellip">
+                        <span>초등학교 안전교육 지킴이</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="text-ellip">
+                        <a href="" target="_blank">https://www.youtube.com/watch?v=yn9d3VHhHMc</a>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- 회원탈퇴 -->
+          <div class="partition">
+            <div class="info-box secession">
+              <b>회원탈퇴</b>
+              <div>
+                <a href="mypage_withdrawal_01.html" class="btn-style btn-gray">회원을 탈퇴 합니다.</a>
+                <p><i class="asterisk"></i>회원을 탈퇴하면 1개월 이내에 재가입이 불가능하며, 기존 데이터는 모두 삭제 됩니다.</p>
+              </div>
+            </div>
+          </div>          
+        </div>
+      </div>
+    </div>
+    <!-- content end -->
+
+</th:block>
+</th:block>
+
+</html>

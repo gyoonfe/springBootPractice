@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover, minimum-scale=1.0, maximum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="description" content="우리아이 온라인 학습 도우미">
+  <title>키즈쉴드</title>
+  <link rel="stylesheet" type="text/css" href="public/css/reset.css">
+  <style>
+    @import url(public/css/font.css);
+    body { background: #30b39e; font-family: 'Noto Sans KR'; }
+    .guide { 
+      background-image: url(public/img/guide_bg-img.png), url(public/img/guide_bg.jpg); 
+      background-repeat: no-repeat, no-repeat;
+      background-size: 620px 487px, cover;
+      background-position: right bottom, 0px 0px;
+      padding: 11.5rem 0;
+    }
+    .guide > div { max-width: 1200px; margin: 0 auto; text-align: center; box-sizing: border-box; padding: 1rem; word-break: keep-all; }
+    .guide > div img { margin-bottom: 3rem; }
+    .guide > div .first { position: relative; }
+    .guide > div .first::before { content: 'KIDS SHIELD'; font-weight: 900; font-size: 11rem; color: rgba(46,179,158,0); -webkit-text-stroke: 1px #00907a; position: absolute; width: 100%; left: 50%; transform: translateX(-50%); z-index: 0; }
+    .guide > div .first b { position: relative;  z-index: 1; display: block; padding-top: 8.25rem; font-family: 'TmoneyRoundWindExtraBold'; font-size: 2.5rem; line-height: 3rem; color: #fff; }
+    .guide > div .first b span { background: linear-gradient(to top, #80d200 30%, transparent 30%); }
+    .guide > div .second { display: inline-block; margin: 3rem 0; background: rgba(10,137,107,.5); padding: 1.25rem 1.75rem; border-radius: 20px; font-size: 1.25rem; line-height: 1.5rem; color: #fff; font-weight: 200; position: relative; z-index: 3; }
+    .guide > div .second span { color: #e8ffc3; font-weight: 500; }
+    .guide > div .third { display: inline-block; font-size: 1.125rem; color: #014632; background: rgba(48,178,157,.75); padding: .125rem; }
+    .guide > div .third span { font-weight: 700; color: #222; }
+
+    @media (max-width: 1200px) {
+      .guide { 
+      background-image: url(public/img/guide_bg.jpg); 
+      background-repeat: no-repeat;
+      background-size:  cover;
+      background-position: 0px 0px; 
+      overflow: hidden; }     
+    }
+    @media (max-width: 992px) {
+      .guide { padding: 10rem 0; }
+    }
+    @media (max-width: 768px) {
+    }
+    @media (max-width: 576px) {
+      .guide { padding: 5rem 0; }
+      .guide > div img { transform:scale(.75); }
+      .guide > div .first::before { font-size: 6rem; top: -2rem; }
+    }
+    @media (max-width: 340px) {
+      .guide > div img { width: 75%; }
+      .guide > div .first::before { font-size: 4rem; top: -2rem; }
+    }
+    @media (max-width: 300px) {
+      .guide > div img { width: 75%; }
+      .guide > div .first::before { font-size: 4rem; top: -2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="guide">
+    <div>
+      <img src="public/img/guide_logo.png" alt="키즈쉴드 로고">
+      <p class="first">
+        <b>현재 키즈쉴드 <span>차단 기능</span>이 실행되고 있어<br>유튜브에 접속 할 수 없습니다.</b> 
+      </p>
+      <p class="second">
+        키즈쉴드 차단 기능이 적용되는 동안에는 <span>유튜브 라이브 방송 시청</span>이 <span>불가능</span>합니다. 
+      </p>
+      <p class="third">
+        <span>유튜브 페이지ㆍ유튜브라이브</span>에 접속하시려면 키즈쉴드 홈페이지의 <span>마이페이지</span>에서 <span>차단 기능을 OFF로 변경</span>해 주시기 바랍니다. 
+      </p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:replace="~{/layout :: setContent(~{this::content})}">
+<th:block th:fragment="content">
+
+
+    <div class="content">
+      <div class="web-wrap">
+        <h2><span>JOIN</span>회원가입</h2>
+        <div class="join-wrap"> 
+          <ul class="step-view">
+            <li class="present">
+              <p><span>STEP 1 :: </span>약관동의</p>
+            </li>
+            <li>
+              <p><span>STEP 2 :: </span>정보입력</p>
+            </li>
+            <li>
+              <p><span>STEP 3 :: </span>가입완료</p>
+            </li>
+          </ul>          
+          <div class="agree-wrap">
+            <div class="agree-content">
+              <div class="agree-title">
+                <div class="check-style">
+                  <input type="checkbox" class="" id="agree1">
+                  <label for="agree1" class="check-shape"></label>
+                  <label for="agree1" class="check-txt">이용약관 동의</label>
+                </div>
+                <span><b>내용보기</b><i class="xi-angle-down"></i></span>
+              </div>
+              <div class="agree-txt">
+                <div id="agree_01"></div>
+              </div>
+            </div>
+            <div class="agree-content">
+              <div class="agree-title">
+                <div class="check-style">
+                  <input type="checkbox" class="" id="agree2">
+                  <label for="agree2" class="check-shape"></label>
+                  <label for="agree2" class="check-txt">개인정보수집 및 이용동의</label>
+                </div>
+                <span><b>내용보기</b><i class="xi-angle-down"></i></span>
+              </div>
+              <div class="agree-txt">
+                <div id="agree_02"></div>                
+              </div>
+            </div>
+            
+          </div>
+          <a th:href="@{/sub/joinForm}" class="btn-style btn-green">동의하고 가입하기</a>
+        </div>
+      </div>
+    </div>
+    <!-- content end -->
+
+  <script>
+    $(function(){
+      // agree txt load
+      $('div#agree_01').load('/sub/agree_01.html');
+      $('div#agree_02').load('/sub/agree_02.html');
+
+      // toggle
+      $('.agree-title > span').click(function(){
+        var $this = $(this);        
+        var $target = $this.parent().parent();
+        if($target.hasClass('actived')){
+          $target.children('.agree-txt').slideUp();
+          $target.removeClass('actived');
+          $this.children('i').removeClass('xi-angle-up').addClass('xi-angle-down');
+        } else {
+          var $removeTarget = $target.parent().children('.actived');
+          $removeTarget.find('.agree-title span i').removeClass('xi-angle-up').addClass('xi-angle-down'); 
+          $removeTarget.removeClass('actived').children('.agree-txt').slideUp();
+          $target.children('.agree-txt').slideDown();
+          $target.addClass('actived');
+          $this.children('i').removeClass('xi-angle-down').addClass('xi-angle-up');
+        }
+        return false;
+      });
+
+      $(".btn-green").on("click", function() {
+    	  if( $("#agree1").is(":checked") != true ) {
+    		  alert('이용약관에 동의해주세요.');
+    		  return false;
+    	  }else if ( $("#agree2").is(":checked") != true ) {
+    		  alert('이용약관에 동의해주세요.');
+    		  return false;
+    	  }else {
+    		  location.href = $(this).attr("href");
+    	  }
+      })
+      
+    });
+  </script>
+
+</th:block>
+</th:block>
+
+</html>

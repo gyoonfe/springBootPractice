@@ -1,0 +1,270 @@
+@charset "utf-8";
+
+@import url(font.css);
+
+/* 본고딕 - Noto Sans KR : 100, 200, 300, 400, 500, 700, 900 */
+
+/* *******************************
+ * filename : reset.css
+ * description : 태그초기화 CSS
+ * date : 2017-05-30
+******************************* */
+
+html {
+  overflow-y:scroll;
+  -webkit-text-size-adjust:none; 
+  -moz-text-size-adjust:none; 
+  -ms-text-size-adjust:none; 
+  text-size-adjust:none;
+  width:100%; 
+  min-width:280px; 
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin:0;
+  padding:0;
+  border:0; 
+}
+body{
+  width:100%; 
+  font-family:'Noto Sans KR', '돋움', Dotum, '굴림', Gulim, Helvetica, sans-serif;
+  font-size:16px; 
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary {
+  display:block;
+}
+audio, canvas, video {
+  display:inline-block;
+}
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+audio, canvas, img, video {
+  vertical-align:middle;
+}
+body {
+  line-height:1;
+}
+ol, ul {
+  list-style:none;
+}
+blockquote, q {
+  quotes:none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content:"";
+  content:none;
+}
+table {
+  border-collapse:collapse;
+  border-spacing:0;
+}
+img, fieldset {
+  border:0;
+}
+input, select, textarea {
+  line-height:1.2;
+  vertical-align:middle;
+}
+table, th, td, input,
+textarea, button, select {
+  font-family:"돋움", Dotum, Arial, sans-serif;
+  font-size:14px;
+  color:#666;
+}
+button, select {
+  text-transform:none;
+}
+button, input {
+  line-height:normal;
+}
+textarea {
+  resize:vertical;
+  overflow:auto;
+}
+address, caption, cite, code,
+dfn, em, var {
+  font-style:normal;
+  font-weight:normal;
+}
+label {
+  cursor:pointer;
+}
+/* For Screen Reader */
+legend {
+  display:none;
+  visibility:hidden;
+}
+/* For Screen Reader */
+caption {
+  display:none;
+  visibility:hidden;
+}
+hr {
+  display:block;
+  height:1px;
+  border:0;
+  border-top:1px solid #ccc;
+  margin:1em 0;
+  padding:0;
+}
+a {
+  color:#666;
+  text-decoration:none;
+}
+a:active, a:hover, a:focus {
+  text-decoration:none;
+}
+a:hover {
+  color:#333;
+}
+select {
+  transition:border-color .15s ease-in-out, background-color .15s ease-in-out; 
+  border:1px solid rgba(0,0,0,0.16);
+}
+button {
+  margin:0px;
+  padding:0px;
+  cursor:pointer;
+  border:0px;
+  background:none;
+}
+mark {
+  background:#FF0;
+  color:#000
+}
+
+/* **********************
+ * 공통 스타일
+ * date : 2020-02-25
+********************** */
+
+.blind {
+  display:block; 
+  overflow:hidden; 
+  position:absolute; 
+  top:0; 
+  left:0; 
+  width:0 !important; 
+  min-width:0 !important; 
+  height:0; 
+  border:0; 
+  background:0 0; 
+  font-size:0; 
+  line-height:0
+}
+.hide {
+  overflow: hidden;
+  display: inline-block;
+  position: absolute;
+  border: 0;
+  margin: -1px;
+  width: 1px;
+  height: 1px;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+}
+.ell-txt {
+  text-overflow:ellipsis; 
+  white-space:nowrap; 
+  overflow:hidden;
+}
+.border-no { 
+  border:none !important;
+}
+.clearfix {
+  *zoom:1;
+}
+.clearfix:after {
+  clear:both; 
+  display:block; 
+  visibility:hidden;   
+  height:0; 
+  content:'';
+}
+/* text-align */
+.al {
+  text-align:left !important;
+}
+.ac {
+  text-align:center !important;
+}
+.ar {
+  text-align:right !important;
+}
+/* float */
+.fl {
+  float:left !important;
+}
+.fr {
+  float:right !important;
+}
+/* div vertical align middle */
+.d-va-m {
+  font-size:0; 
+  line-height:0; 
+  text-align:center;
+}
+.d-va-m::before {
+  display:inline-block; 
+  content:''; 
+  width:0; 
+  height:100%; 
+  vertical-align:middle;
+}
+.d-va-m > div {
+  display:inline-block; 
+  vertical-align:middle;
+}
+/* responsive - show, hide */
+.dp-n {
+  display:none !important;
+}
+
+/* *****************************
+ * 미디어쿼리 - mobile에서 web
+***************************** */
+@media (min-width: 576px) {
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+}
+
+@media (min-width: 1200px) {
+}
+/* *****************************
+ * 미디어쿼리 - web에서 mobile
+***************************** */
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 992px) {
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 576px) {
+}
+
+
+
+

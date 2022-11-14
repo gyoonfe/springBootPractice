@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="pages/admin/layout/layout">
+<head>
+	<meta charset="utf-8">
+	<meta name="_csrf" th:content="${_csrf.token}"/>
+	<meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+</head>	
+
+<th:block th:replace="~{/admin/layout/layout :: setContent(~{this::content})}">
+<th:block th:fragment="content">
+	    
+	    <div class="container-fluid">
+			
+			<!-- Page Heading -->
+			<h1 class="h3 mb-2 text-gray-800">공지사항</h1>
+			
+			<div class="card shadow mb-4">
+			
+			    <div class="card-body">
+			        <div class="table-responsive">
+			            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+			                <thead>
+			                    <tr>
+			                        <th>번호</th>
+			                        <th>제목</th>
+			                        <th>조회수</th>
+			                        <th>등록일시</th>
+			                        <th>수정일시</th>
+			                        <th>등록자</th>
+			                        <th>수정자</th>
+			                    </tr>
+			                </thead>
+			            </table>
+			        </div>
+			    </div>
+			</div>
+
+			<div class="form-row float-right" style="padding-right:10px; padding-bottom:50px;">
+				<a th:href="@{/admin/noticeReg}" class="btn btn-primary">등록</a>
+			</div>	
+
+	    </div>
+	    
+		<script type="text/javascript">
+
+//  		var errorMsg = '${errorMessage}';
+//  		console.log(errorMsg);
+// 		if( errorMsg != '' && errorMsg != null ) {
+// 			alert(errorMsg);
+// 		}
+		
+		var dataTbl;
+		function init_DataTables() {
+			dataTbl = $("#dataTable").DataTable({
+				stateSave: false,
+				dom: "Bfrtip",
+				buttons: [
+					{
+						extend: "excel",
+						className: "btn btn-success"
+					}, {
+						extend: "print",
+						className: "btn btn-success"
+					}
+				],		
+				destroy : true,
+				ajax: {
+					beforeSend : function(xhr) {xhr.setRequestHeader($("meta[name='_csrf_header']").attr("content"), $("meta[name='_csrf']").attr("content"));},
+					url: "/admin/noticeList_process",
+					dataSrc: "",
+					type: "POST"
+				},
+				columns: [
+					{data: 'idx'},
+				    {data: 'subject'},			    
+					{data: 'hit'},
+					{data: 'regdtm'},
+					{data: 'moddtm'},
+					{data: 'regid'},
+					{data: 'modid'}
+				]			
+			});		
+			
+			$("#dataTable tbody").on("click", "tr", function () {
+				var data = dataTbl.row( this ).data();
+				$(location).attr('href',"/admin/notice/" + data.idx);
+			});
+		}
+		
+		$(document).ready(function() {			
+			init_DataTables();
+		});
+		</script>
+	    
+	    
+</th:block>
+</th:block>
+	
+</html>

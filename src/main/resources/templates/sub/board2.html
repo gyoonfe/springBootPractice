@@ -1,0 +1,65 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+</head>
+<th:block th:replace="~{/layout :: setContent(~{this::content})}">
+<th:block th:fragment="content">
+
+
+	<script th:inline="javascript">
+		function page(page) {
+			location.href = "/sub/board/" + page;
+		}
+	</script>
+
+
+    <div class="s-visual">
+      <div class="sub-bg">
+        <p>키즈쉴드</p>
+        <a href="" class="btn-style btn-yellow">다운로드<i class="arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="content">
+      <div class="web-wrap">
+        <h2><span>NOTICE</span>공지사항</h2>
+        <div class="board">         
+          <ul class="list">
+            <li th:each="notice, status : ${notice_list.getContent()}">
+              <b class="num">[[${notice.idx}]]</b>
+              <div>
+                <p class="title"><a th:href="@{/sub/boardView/{idx}(idx = ${notice.idx})}">[[${notice.subject}]]</a></p>
+                <span class="date">
+                	<i class="icon-date"></i><span th:text="${#temporals.format(notice.regdtm, 'yyyy-MM-dd HH:mm:ss')}"></span>
+                </span>
+              </div>
+            </li>
+          </ul>
+          <!-- 페이징은 모바일을 고려해서 5페이지까지만 -->
+			<ul class="paging">
+            
+            <li class="page-prev">
+              <a th:href="${previous}" style="cursor:pointer;">
+                <i class="icon-page icon-prev"></i><span class="hide">이전</span>
+              </a>
+            </li>            
+            
+            <li class="page-next">
+              <a  style="cursor:pointer;" th:attr="href=${check} ? ${next} :  ''">
+                <i class="icon-page icon-next"></i><span class="hide">다음</span>
+              </a>
+            </li>
+            
+          </ul>
+
+          
+          
+        </div>
+      </div>
+    </div>
+    <!-- content end -->
+    
+
+</th:block>
+</th:block>
+
+</html>
